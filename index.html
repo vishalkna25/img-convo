@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <title>HTM - Convertor</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    </head>
+    <body>
+        <section class="landing-container-S -S">
+            <div class="landing-container-D -D">
+                <div class="landing-container-bg"></div>
+                <div class="lc-container">
+                    <div class="lc-c-col lc-c-text">
+                        <h1>Convert your Images</h1>
+                        <p>Convert images online, for free.</p>
+                    </div>
+                    <div class="lc-c-col lc-c-dbc">
+                        <div class="lc-c-dropbox">
+                            <p>Drop your <b>Images</b></p>
+                            <br>
+                            <div class="lc-c-dp-btn">
+                                <input type="file" class="file-upload-wrapper" accept="image/*" id="images" type="file" name="pwd" multiple/>
+                                <p>Choose Files</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="display-container-D -D">
+                <div class="dc-main">
+                    <div class="dc-main-text">
+                        <p id="dropzone">Convert to</p>
+                        <div class="dc-main-format" style="display: none;">
+                            <select class="form-control" id="Formfrom">
+                                <option>JPEG</option>
+                                <option>PNG</option>
+                                <option>BMP</option>
+                             </select>
+                        </div>
+                        <div class="dc-main-format">
+                            <select class="form-control" id="FormControl">
+                                <option>PNG</option>
+                                <option>JPEG</option>
+                                <option>BMP</option>
+                             </select>
+                        </div>
+                    </div>
+                    <div class="dc-file-list">
+                        <ul id="fileList" class="file-list"></ul>
+                    </div>
+                    <br>
+                    <!--
+                    <div class="dc-cb-zip">
+                        <input class="form-check-input" id="tozip" type="checkbox"> Zip files
+                    </div>
+                    <br>
+                    -->
+                    <div class="dc-main-text">
+                        <div class="dc-btn" onclick="convert()">Convert</div>
+                        <div class="dc-btn dc-close-btn" id="dc-close-btn">Close</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="reviews-S -S">
+            <div class="reviews-D -D">
+                <div class="reviews-title">
+                    <h2>reviews</h2>
+                    <div class="reviews-title-underline"></div>
+                  </div>
+                  <div class="slideshow-container">
+                        <div class="review-container">
+                            <article class="review">
+                                <h4 id="reviews-author">Vishal Kanna</h4>
+                                <div class="stars">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                                <p id="reviews-info">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+                                asperiores debitis incidunt, eius earum ipsam cupiditate libero?
+                                Iste, doloremque nihil?
+                                </p>
+                            </article>
+                        </div>
+                        <div class="review-container">
+                            <article class="review">
+                                <h4 id="reviews-author">Simuchand</h4>
+                                <div class="stars">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                                <p id="reviews-info">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+                                asperiores debitis incidunt, eius
+                                </p>
+                            </article>
+                        </div>
+                        <div class="review-container">
+                            <article class="review">
+                                <h4 id="reviews-author">Vishnu</h4>
+                                <div class="stars">
+                                    <span class="fa fa-star Checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                                <p id="reviews-info">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+                                asperiores debitis incidunt, eius
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="dot-container">
+                        <span class="dot" onclick="currentSlide(1)"></span> 
+                        <span class="dot" onclick="currentSlide(2)"></span> 
+                        <span class="dot" onclick="currentSlide(3)"></span> 
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="script.js"></script>
+        <script src="jszip.min.js"></script>
+        <script src="FileSaver.min.js"></script>
+    </body>
+</html>
