@@ -371,8 +371,8 @@ margin: auto;
 
   .dot {
     cursor: pointer;
-    height: 15px;
-    width: 15px;
+    width: 10px;
+    height: 10px;
     margin: 0 2px;
     background-color: #bbb;
     border-radius: 50%;
@@ -381,6 +381,8 @@ margin: auto;
   }
 
   .active, .dot:hover {
+    width: 20px;
+    border-radius: 5px;
     background-color: #717171;
   }
 
