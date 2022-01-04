@@ -446,9 +446,11 @@ margin: auto;
     color: #c4c4c4;
   }
 
-  .checked{
+  .checked {
     color: #fc0;
+    text-shadow: 0 0 3px rgba(53, 53, 53, 0.26);
   }
+	
   
   #reviews-info {
     font-size: 18px;
@@ -486,3 +488,107 @@ margin: auto;
     }
   }
   
+  .review-form-container-D{
+    width: 100vw;
+    margin: 50px auto;
+  }
+
+  .rfc-review{
+    margin: 25px;
+    padding: 50px;
+  }
+
+  .rfc-review {
+    border-radius: 10px;
+    background-color: #24262B;
+  }
+
+  .rfc-review .stars {
+    margin-bottom: 15px;
+    font-size: 25px;
+    color: #1C1E20; 
+  }
+	
+	.rfc-review-rating { 
+		display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+		padding: 0;
+		margin: 15px auto;
+		border: none;
+  }
+
+  .rfc-review-rating > input { display: none; } 
+
+  .rfc-review-rating > label:before { 
+    display: inline-block;
+    margin-right: 5px;
+    font-family: "Font Awesome 5 Free";
+    font-size: 25px;
+    font-weight: 900;
+    content: "\f005";
+  }
+		
+  .rfc-review-rating > label { 
+    float: right; 
+    color: #1C1E20;
+    cursor: pointer;
+    transition: 0.15s ease-in-out;
+  }
+  
+  .rfc-review-rating > input:checked ~ label,
+  .rfc-review-rating:not(:checked) > label:hover,
+  .rfc-review-rating:not(:checked) > label:hover ~ label { 
+    color: #fc0;
+    text-shadow: 0 0 6px rgba(49, 48, 44, 0.356); 
+  }
+
+  .rfc-review-rating > input:checked + label:hover,
+  .rfc-review-rating > input:checked ~ label:hover,
+  .rfc-review-rating > label:hover ~ input:checked ~ label,
+  .rfc-review-rating > input:checked ~ label:hover ~ label { 
+    color: #fc0;  
+  } 
+	
+.rfc-review-title{
+  margin: 0px 0px 5px;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+	
+.rfc-review-content input, .rfc-review-content textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #16181A;
+    color: #FFFFFF;
+    background-color: transparent;
+    outline: none;
+  }
+
+.rfc-review-content input:focus {
+  border: 1px solid #FFFFFF;
+} 
+
+.rfc-review-content textarea:focus {
+  border: 1px solid #FFFFFF;
+}
+
+.rfc-review-submit {
+  display: block;
+  margin: auto;
+  padding: 10px 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  background-color: #3bb143;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.rfc-review-submit:hover {
+  background-color: #226626;
+}

@@ -246,3 +246,11 @@ function showSlides() {
   dots[slideIndex-1].className += " active";
   setTimeout(showSlides, 3000);
 }
+
+function renderStars(rate) {
+	let rating = '';
+	for (let i = 0; i < 5; i++) {
+		rating += `<i class="fas fa-star ${i < rate ? 'checked' : ''}"></i>`;
+	}
+	return rating;
+}
