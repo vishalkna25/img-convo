@@ -1,6 +1,7 @@
 var droppedFiles = false;
 var drop = document.getElementById("dropzone");
 var tostop = ["drag", "dragstart", "dragend", "dragover", "dragenter", "dragleave", "drop"];
+var format = ''
 for (var i in tostop) {
     drop.addEventListener(tostop[i], function(e) {
         e.preventDefault();
@@ -94,10 +95,10 @@ var JpgToPngConvertor = function() {
         function updateDownloadLink(jpgFileName, pngBlob) {
             const linkEl = downloadLink;
             var pngFileName = "";
-            if (document.getElementById("Formfrom").value.toLowerCase() == 'jpeg') {
+            if (format == 'jpeg') {
                 pngFileName = jpgFileName.replace(/jpe?g/i, window.convertto);
             } else {
-                pngFileName = jpgFileName.replace(document.getElementById("Formfrom").value.toLowerCase(), window.convertto);
+                pngFileName = jpgFileName.replace(format.toLowerCase(), window.convertto);
             }
             linkEl.setAttribute('download', pngFileName);
             linkEl.href = window.URL.createObjectURL(pngBlob);
@@ -158,6 +159,7 @@ window.convert = function() {
         }
     }
     */
+    window.zip = new JSZip();
     for (var i = 0; i < document.getElementById("images").files.length; i++) {
         conv(document.getElementById("images").files[i]).process(zip);
     }
@@ -165,18 +167,40 @@ window.convert = function() {
     document.getElementsByClassName('landing-container-D')[0].style.filter = "blur(0px)";
 }
 
-document.getElementById("images").onchange = function (){
+function displayFileList(){
     var input = document.getElementById('images');
     var output = document.getElementById('fileList');
-
+    
+    if(input.files.length!=0)
+    {
+        format = input.files.item(0).name.split('.').pop();
+    }
     document.getElementsByClassName('display-container-D')[0].style.display = "block";
     document.getElementsByClassName('landing-container-D')[0].style.filter = "blur(2px)";
     var children = "";
     for (var i = 0; i < input.files.length; ++i) {
-        children +=  '<li>'+ input.files.item(i).name + '<span class="remove-list" onclick="return this.parentNode.remove()">x</span>' + '</li>';
+        console.log(input.files.item(i).name);
+        children +=  '<li>'+ input.files.item(i).name + '<span class="remove-list" onclick="removeFileFromFileList('+i+')">x</span>' + '</li>';
     }
     output.innerHTML = children;
 }
+
+function removeFileFromFileList(index) {
+    console.log(index);
+    const dt = new DataTransfer();
+    const input = document.getElementById('images');
+    const { files } = input;
+    
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (index !== i)
+        dt.items.add(file);
+    }
+    
+    input.files = dt.files;
+
+    displayFileList();
+  }
 
 document.getElementById("dc-close-btn").onclick = function (){
     document.getElementsByClassName('display-container-D')[0].style.display = "none";
