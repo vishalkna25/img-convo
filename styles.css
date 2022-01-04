@@ -469,6 +469,18 @@ margin: auto;
     .reviews-D{
       width: 300px;
     }
+
+    .review-container{
+      margin: 20px 0px 0px 0px;
+    }
     
+    #reviews-info{
+      font-size: 15px;
+    }
+
+    .dot{
+      width: 10px;
+      height: 10px;
+    }
   }
   
