@@ -174,15 +174,19 @@ function displayFileList(){
     if(input.files.length!=0)
     {
         format = input.files.item(0).name.split('.').pop();
+        document.getElementsByClassName('display-container-D')[0].style.display = "block";
+        document.getElementsByClassName('landing-container-D')[0].style.filter = "blur(2px)";
+        var children = "";
+        for (var i = 0; i < input.files.length; ++i) {
+            console.log(input.files.item(i).name);
+            children +=  '<li>'+ input.files.item(i).name + '<span class="remove-list" onclick="removeFileFromFileList('+i+')">x</span>' + '</li>';
+        }
+        output.innerHTML = children;
+    }else{
+        document.getElementsByClassName('display-container-D')[0].style.display = "none";
+        document.getElementsByClassName('landing-container-D')[0].style.filter = "blur(0px)";
     }
-    document.getElementsByClassName('display-container-D')[0].style.display = "block";
-    document.getElementsByClassName('landing-container-D')[0].style.filter = "blur(2px)";
-    var children = "";
-    for (var i = 0; i < input.files.length; ++i) {
-        console.log(input.files.item(i).name);
-        children +=  '<li>'+ input.files.item(i).name + '<span class="remove-list" onclick="removeFileFromFileList('+i+')">x</span>' + '</li>';
-    }
-    output.innerHTML = children;
+    
 }
 
 function removeFileFromFileList(index) {
